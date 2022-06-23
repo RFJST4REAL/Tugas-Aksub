@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<!--title-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:padding="70dp"
+        android:textSize="30sp"
+        />
+
+<!--username-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/et_RegisterUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:hint="type your username here..."
+        />
+
+<!--name-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/et_RegisterName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:hint="type your name here..."
+        />
+<!--password-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/et_Password_Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:inputType="textPassword"
+        android:hint="type your password here..."
+        />
+
+<!--button register-->
+    <Button
+        android:id="@+id/ButtonClickRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_marginHorizontal="30dp"
+        />
+<!--don't have account-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Already have account?"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/btn_ToLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="login here"
+        android:textAlignment="center"
+        android:textColor="#3399ff"
+        />
+
+
+</LinearLayout>

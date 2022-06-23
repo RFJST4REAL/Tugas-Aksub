@@ -5,59 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:gravity="center_horizontal"
+    android:padding="40px"
+    >
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:text="Login"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:padding="70dp"
-        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:textSize="40px"
+
         />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_Username"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username:"
-        android:layout_marginHorizontal="30dp"
-        android:textColor="@color/black"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="30dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password:"
-        android:layout_marginHorizontal="30dp"
-        android:textColor="@color/black"
-        />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="30dp"
-        android:inputType="textPassword" />
+        />
 
     <Button
-        android:id="@+id/ButtonClick"
+        android:id="@+id/btn_Logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginHorizontal="30dp"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Don't have account?"
-        android:textAlignment="center"
+        android:text="Logout"
         />
 
 
