@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -32,9 +33,14 @@ public class RegisterActivity extends AppCompatActivity {
         Register.setOnClickListener(view -> {
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("account_userName", UserName_register.getText().toString());
+            editor.putString("account_name", Name_Register.getText().toString());
+            editor.putString("account_password", Password_Register.getText().toString());
+            editor.apply();
 
-            Intent registerIntent = new Intent(RegisterActivity.this, MainActivity.class);
-            startActivity(registerIntent);
+            Toast.makeText(RegisterActivity.this, "Register Successful",Toast.LENGTH_SHORT).show();
+
+//            Intent registerIntent = new Intent(RegisterActivity.this, MainActivity.class);
+//            startActivity(registerIntent);
         });
         ToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
