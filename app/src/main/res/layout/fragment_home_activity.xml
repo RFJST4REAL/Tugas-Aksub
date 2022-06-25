@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:padding="40dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_textFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test 123"
+            android:textSize="32dp"
+            />
+        <EditText
+            android:id="@+id/et_textFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Text..."
+            android:inputType="text"
+            android:layout_marginTop="24dp"
+            />
+        <Button
+            android:id="@+id/btn_submitFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
