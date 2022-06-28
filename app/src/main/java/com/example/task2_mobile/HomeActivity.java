@@ -1,6 +1,7 @@
 package com.example.task2_mobile;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -22,7 +23,7 @@ import android.widget.Toast;
 public class HomeActivity extends Fragment {
     TextView textViewHome;
     EditText editTextHome;
-    Button btnSubmitFragmentHome;
+    Button btnSubmitFragmentHome, LoadingBtn;
     AlertDialog dialogFirstPage;
 
     @Override
@@ -32,6 +33,16 @@ public class HomeActivity extends Fragment {
         textViewHome = HomeViewFragment.findViewById(R.id.tv_textFragment);
         editTextHome = HomeViewFragment.findViewById(R.id.et_textFragment);
         btnSubmitFragmentHome = HomeViewFragment.findViewById(R.id.btn_submitFragment);
+        LoadingBtn = HomeViewFragment.findViewById(R.id.loadingButton);
+
+        ProgressDialog progressDialog= new ProgressDialog(getContext());
+        progressDialog.setTitle("Loading");
+        progressDialog.setMessage("Aplikasi sedang di jalankan...");
+        progressDialog.setCancelable(true);
+
+        LoadingBtn.setOnClickListener(view -> {
+            progressDialog.show();
+        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Confirm").setMessage("Are you sure want to edit the title text?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {

@@ -1,6 +1,8 @@
 package com.example.task2_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
@@ -8,8 +10,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.task2_mobile.databinding.ActivityMainBinding;
+import com.example.task2_mobile.viewmodel.MainViewModel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPagerMain;
     PageAdapter pageAdapter;
+
+    private ActivityMainBinding mBinding;
+    private List<String> nbaTeamsItemName;
+    private MainViewModel mMainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +54,20 @@ public class MainActivity extends AppCompatActivity {
         new TabLayoutMediator(tabLayout, viewPagerMain, ((tab, position) -> {
             tab.setText(pageAdapter.getFragmentTitle(position));
         })).attach();
+
+
+        mBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(mBinding.getRoot());
+
+        nbaTeamsItemName = new ArrayList<>();
+
+        mMainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        mMainViewModel.callApi();
+        mMainViewModel.getNbaTeams().observe(this, nbaTeamItemResponseItems -> {
+            mBinding.rvNbaTeams.setAdapter(new ViewTeamAdapter(nbaTeamItemResponseItems));
+        });
+
+
     }
 
     private void setViewPagerMain(ViewPager2 viewPagerMain){
