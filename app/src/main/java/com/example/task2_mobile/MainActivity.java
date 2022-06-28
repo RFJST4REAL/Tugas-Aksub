@@ -26,10 +26,6 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 viewPagerMain;
     PageAdapter pageAdapter;
 
-    private ActivityMainBinding mBinding;
-    private List<String> nbaTeamsItemName;
-    private MainViewModel mMainViewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,18 +50,6 @@ public class MainActivity extends AppCompatActivity {
         new TabLayoutMediator(tabLayout, viewPagerMain, ((tab, position) -> {
             tab.setText(pageAdapter.getFragmentTitle(position));
         })).attach();
-
-
-        mBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(mBinding.getRoot());
-
-        nbaTeamsItemName = new ArrayList<>();
-
-        mMainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        mMainViewModel.callApi();
-        mMainViewModel.getNbaTeamItems().observe(this, nbaTeamItemResponseItems -> {
-            mBinding.rvNbaTeams.setAdapter(new ViewTeamAdapter(nbaTeamItemResponseItems));
-        });
 
 
     }

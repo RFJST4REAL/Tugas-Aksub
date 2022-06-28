@@ -24,7 +24,6 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class SecondpageMainFragment extends Fragment {
-    View SecondpageFragment;
     private FragmentSecondpageMainBinding mBinding;
     private List<String> nbaTeamsItemName;
     private MainViewModel mMainViewModel;
@@ -33,20 +32,17 @@ public class SecondpageMainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        SecondpageFragment = inflater.inflate(R.layout.fragment_secondpage_main, container, false);
-
-
-        mBinding = FragmentSecondpageMainBinding.inflate(getLayoutInflater());
-        setContentView(mBinding.getRoot());
+        mBinding = FragmentSecondpageMainBinding.inflate(inflater, container, false);
 
         nbaTeamsItemName = new ArrayList<>();
 
         mMainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         mMainViewModel.callApi();
-        mMainViewModel.getNbaTeamItems().observe(this, nbaTeamItemResponseItems -> {
+        mMainViewModel.getNbaTeamItems().observe(getViewLifecycleOwner(), nbaTeamItemResponseItems -> {
             mBinding.rvNbaTeams.setAdapter(new ViewTeamAdapter(nbaTeamItemResponseItems));
         });
 
-        return SecondpageFragment;
+        return mBinding.getRoot();
     }
+
 }
