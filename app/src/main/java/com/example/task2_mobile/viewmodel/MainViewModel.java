@@ -17,7 +17,7 @@ import retrofit2.Response;
 public class MainViewModel extends ViewModel {
 
     private MutableLiveData<List<NbaTeamItemResponseItem>> _nbaTeams = new MutableLiveData<>();
-    private LiveData<List<NbaTeamItemResponseItem>> getNbaTeamItems(){
+    public LiveData<List<NbaTeamItemResponseItem>> getNbaTeamItems(){
         return _nbaTeams;
     }
 

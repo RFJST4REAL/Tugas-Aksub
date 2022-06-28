@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         mMainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         mMainViewModel.callApi();
-        mMainViewModel.getNbaTeams().observe(this, nbaTeamItemResponseItems -> {
+        mMainViewModel.getNbaTeamItems().observe(this, nbaTeamItemResponseItems -> {
             mBinding.rvNbaTeams.setAdapter(new ViewTeamAdapter(nbaTeamItemResponseItems));
         });
 
