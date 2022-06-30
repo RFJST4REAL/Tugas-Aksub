@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.task2_mobile.data.remote.NbaTeamItemResponseItem;
+import com.example.task2_mobile.data.repository.NbaTeamRepository;
 import com.example.task2_mobile.databinding.ItemNbaTeamBinding;
 
 import java.util.List;
@@ -22,6 +23,12 @@ public class ViewTeamAdapter extends RecyclerView.Adapter<ViewTeamAdapter.ViewHo
         this.nbaTeamItems = eachItems;
     }
 
+    OnItemClickCallBack mOnItemClickCallBack;
+
+    public void setOnItemClickCallBack(OnItemClickCallBack OnItemClickCallBack){
+        this.mOnItemClickCallBack = mOnItemClickCallBack;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,6 +39,9 @@ public class ViewTeamAdapter extends RecyclerView.Adapter<ViewTeamAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(nbaTeamItems.get(position));
+        holder.binding.btnSave.setOnClickListener(view ->
+            mOnItemClickCallBack.onInsertClick(NbaTeamItemResponseItem.get(position));
+        );
     }
 
     @Override
@@ -53,5 +63,9 @@ public class ViewTeamAdapter extends RecyclerView.Adapter<ViewTeamAdapter.ViewHo
                     .load(nbaTeamItem.getLogo())
                     .into(binding.ivLogo);
         }
+    }
+
+    public interface OnItemClickCallBack {
+        void onInsertClick(NbaTeamItemResponseItem NbaTeamItemResponseItem);
     }
 }

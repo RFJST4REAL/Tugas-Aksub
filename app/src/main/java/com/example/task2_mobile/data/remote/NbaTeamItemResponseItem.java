@@ -1,6 +1,11 @@
 package com.example.task2_mobile.data.remote;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
+
+@Entity
 
 public class NbaTeamItemResponseItem{
 
@@ -10,6 +15,7 @@ public class NbaTeamItemResponseItem{
 	@SerializedName("logo")
 	private String logo;
 
+	@PrimaryKey
 	@SerializedName("id")
 	private int id;
 

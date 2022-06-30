@@ -1,5 +1,7 @@
 package com.example.task2_mobile.viewmodel;
 
+import android.app.Application;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -7,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.task2_mobile.data.remote.ApiConfig;
 import com.example.task2_mobile.data.remote.ApiService;
 import com.example.task2_mobile.data.remote.NbaTeamItemResponseItem;
+import com.example.task2_mobile.data.repository.NbaTeamRepository;
 
 import java.util.List;
 
@@ -15,6 +18,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainViewModel extends ViewModel {
+
+    private NbaTeamRepository mNbaTeamRepository;
+
+    public MainViewModel(Application application){
+        mNbaTeamRepository = new NbaTeamRepository(application);
+    }
 
     private MutableLiveData<List<NbaTeamItemResponseItem>> _nbaTeams = new MutableLiveData<>();
     public LiveData<List<NbaTeamItemResponseItem>> getNbaTeamItems(){
@@ -37,5 +46,9 @@ public class MainViewModel extends ViewModel {
 
             }
         });
+    }
+
+    public void insertNbaItem(NbaTeamItemResponseItem NbaTeamItemResponseItem){
+        mNbaTeamRepository.insert(NbaTeamItemResponseItem);
     }
 }
